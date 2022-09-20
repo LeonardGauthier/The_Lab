@@ -1,0 +1,16 @@
+name: Assign
+on:
+  issues:
+    types: [opened]
+jobs:
+  assignTroy:
+    name: Assign LeonardGauthier
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Label issue
+        uses: actions/github@v1.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          args: assign LeonardGauthier
